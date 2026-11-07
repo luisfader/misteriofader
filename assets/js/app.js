@@ -112,4 +112,22 @@
   $("seek").addEventListener("input", (e) => {
     if (audio.duration) audio.currentTime = (e.target.value / 100) * audio.duration;
   });
+
+  // El zorro de la finca: al tocarlo, se frena y dice algo
+  const zorro = $("zorro");
+  const dichos = [
+    "¿Roca? No sé de qué me hablan.",
+    "Yo solo abrí un maletín.",
+    "Las uvas brillan por algo…",
+    "Esta finca me llama.",
+    "Asado mendocino. El correcto."
+  ];
+  let dicho = -1, espera;
+  if (zorro) zorro.addEventListener("click", () => {
+    dicho = (dicho + 1) % dichos.length;
+    $("globo").textContent = dichos[dicho];
+    zorro.classList.add("quieto");
+    clearTimeout(espera);
+    espera = setTimeout(() => zorro.classList.remove("quieto"), 3200);
+  });
 })();

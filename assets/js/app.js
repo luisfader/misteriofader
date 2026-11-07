@@ -28,43 +28,24 @@
     <li class="track" data-i="${i}">
       <button class="tplay" type="button" aria-label="Escuchar ${esc(c.titulo)}">▶</button>
       <div class="tmeta">
-        <span class="ttitle">${esc(c.titulo)}${c.original ? ` <span class="torig" lang="ru">${esc(c.original)}</span>` : ""}${c.instrumental ? ' <span class="ttag">instrumental</span>' : ""}</span>
+        <span class="ttitle">${esc(c.titulo)}${c.original ? ` <span class="torig" lang="ru">${esc(c.original)}</span>` : ""}</span>
         <span class="tscene">${esc(c.escena)} · <span class="tchap">${esc(c.capitulo)}</span></span>
-        <span class="tnote">${esc(c.nota)}</span>
       </div>
       <span class="tdur">${c.audio === false ? "pronto" : esc(c.duracion || "")}</span>
     </li>`).join("");
 
-  // Letras (Markdown simple: líneas y estrofas)
-  async function showLyrics(i) {
+  // El capítulo: resumen y frase de un personaje
+  function showChapter(i) {
     const c = list[i];
-    $("lyrics").hidden = false;
-    $("lyricsTitle").textContent = c.titulo + (c.original ? " · " + c.original : "");
-    $("lyricsScene").textContent = c.capitulo + (c.autoria ? " · " + c.autoria : "");
-    let html = c.instrumental
-      ? '<p class="muted">Instrumental.</p>'
-      : '<p class="muted">La letra llega pronto.</p>';
-    if (!c.instrumental) {
-      try {
-        const r = await fetch("letras/" + c.id + ".md");
-        if (r.ok) {
-          const txt = (await r.text())
-            .replace(/<!--[\s\S]*?-->/g, "")
-            .replace(/^#.*$/m, "")
-            .trim();
-          if (txt) {
-            html = txt.split(/\n\s*\n/).map((st) => {
-              const lines = st.split("\n").map((l) => esc(l.trim()));
-              const m = lines[0].match(/^\[(.+)\]$/);
-              const label = m ? lines.shift() && m[1] : "";
-              const isChorus = /^(estribillo|coro|припев)/i.test(label);
-              return `<p class="${isChorus ? "chorus" : ""}">${label ? `<span class="label">${label}</span>` : ""}${lines.join("<br>").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>")}</p>`;
-            }).join("");
-          }
-        }
-      } catch (e) { /* abierto como archivo */ }
-    }
-    if (current === i) $("lyricsBody").innerHTML = html;
+    const li = document.querySelector('.track[data-i="' + i + '"]');
+    if (li) li.appendChild($("chapter"));
+    $("chapter").hidden = false;
+    $("chapterLabel").textContent = "En la novela" + (c.autoria ? " · " + c.autoria : "");
+    $("chapterTitle").innerHTML = esc(c.titulo) + (c.original ? ` <span class="torig" lang="ru">${esc(c.original)}</span>` : "");
+    $("chapterSummary").textContent = c.resumen || "";
+    $("chapterQuote").hidden = !c.frase;
+    $("quoteText").textContent = c.frase ? "«" + c.frase + "»" : "";
+    $("quoteWho").textContent = c.quien || "";
   }
 
   function play(i) {
@@ -73,7 +54,7 @@
       if (!audio.paused) audio.pause();
       current = i;
       audio.removeAttribute("src");
-      showLyrics(i);
+      showChapter(i);
       $("player").hidden = false;
       $("nowTitle").textContent = list[i].titulo + " — grabación pronto";
       sync();
@@ -82,7 +63,7 @@
     if (i !== current) {
       current = i;
       audio.src = "audio/" + list[i].id + ".mp3";
-      showLyrics(i);
+      showChapter(i);
     }
     audio.play();
     $("player").hidden = false;
@@ -107,6 +88,7 @@
   };
 
   $("tracks").addEventListener("click", (e) => {
+    if (e.target.closest(".chapter")) return;
     const li = e.target.closest(".track");
     if (!li) return;
     const i = Number(li.dataset.i);

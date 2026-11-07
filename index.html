@@ -6,12 +6,12 @@
   <title>El misterio de los Fader — banda sonora</title>
   <meta name="description" content="La música de «El misterio de los Fader», novela de Luis Fader: de la nieve de Moscú a la Vendimia de Mendoza.">
   <meta property="og:title" content="El misterio de los Fader — banda sonora">
-  <meta property="og:description" content="De la nieve de Moscú a la Vendimia de Mendoza: diecinueve canciones de la novela.">
+  <meta property="og:description" content="De la nieve de Moscú a la Vendimia de Mendoza: dieciocho piezas instrumentales de la novela.">
   <meta property="og:image" content="assets/img/hero-andes.jpg">
   <meta name="theme-color" content="#1c0b14">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
@@ -23,7 +23,7 @@
     <div class="wrap hero-inner">
       <p class="eyebrow">Moscú · Mendoza · Banda sonora</p>
       <h1>El misterio<br>de los <em>Fader</em></h1>
-      <p class="lead">De la nieve de Jóvrino a la Vendimia, en diecinueve canciones.</p>
+      <p class="lead">De la nieve de Jóvrino a la Vendimia, en dieciocho piezas instrumentales.</p>
       <p class="quote">«Gracias, Mendoza. Estoy seguro de que algún día nos volveremos a encontrar.»</p>
       <button class="btn" id="playAll" type="button">▶ Escuchar desde el principio</button>
     </div>
@@ -36,17 +36,21 @@
       <div>
         <h2>Un maletín, una acequia y un zorro</h2>
         <p>Luis se hace rico de golpe y no dice cómo. Lleva a Natalia de Moscú a Mendoza, y esa misma noche ella sale coronada reina de la Vendimia. Un maletín con hidromiel cae a una acequia del Parque San Martín, viaja por Godoy Cruz hasta la finca de Sergio, un zorro lo abre y las uvas empiezan a brillar.</p>
-        <p>Las canciones siguen el viaje en el orden de la novela: el invierno ruso, el atardecer en la finca, las pesadillas de Karl y la noche en que Mendoza se convierte en capital.</p>
+        <p>La música sigue el viaje en el orden de la novela: el invierno ruso, el atardecer en la finca, las pesadillas de Karl y la noche en que Mendoza se convierte en capital. Elegí una pieza y debajo aparece lo que pasa en ese capítulo.</p>
       </div>
     </section>
 
-    <h2 class="section-title">Canciones</h2>
+    <h2 class="section-title">Banda sonora</h2>
     <ol class="tracks" id="tracks"></ol>
 
-    <section class="lyrics" id="lyrics" hidden>
-      <p class="eyebrow" id="lyricsScene"></p>
-      <h2 id="lyricsTitle"></h2>
-      <div id="lyricsBody" class="lyrics-body"></div>
+    <section class="chapter" id="chapter" hidden aria-live="polite">
+      <p class="eyebrow" id="chapterLabel"></p>
+      <h2 id="chapterTitle"></h2>
+      <p class="chapter-summary" id="chapterSummary"></p>
+      <figure class="chapter-quote" id="chapterQuote">
+        <blockquote id="quoteText"></blockquote>
+        <figcaption id="quoteWho"></figcaption>
+      </figure>
     </section>
 
     <h2 class="section-title">Postales de la novela</h2>
@@ -74,7 +78,7 @@
   </div>
   <audio id="audio" preload="none"></audio>
 
-  <script src="assets/js/canciones.js?v=1"></script>
-  <script src="assets/js/app.js?v=1"></script>
+  <script src="assets/js/canciones.js?v=2"></script>
+  <script src="assets/js/app.js?v=2"></script>
 </body>
 </html>

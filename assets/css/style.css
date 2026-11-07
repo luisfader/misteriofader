@@ -95,7 +95,7 @@ h1 em { color: var(--gold); font-style: italic; }
 /* Introducción */
 .intro { display: grid; grid-template-columns: 170px 1fr; gap: 28px; align-items: start; margin: 8px 0 48px; }
 .cover { width: 100%; border-radius: 6px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5); }
-.intro h2, .section-title, .lyrics h2 { font: 700 30px/1.15 var(--serif); margin: 0 0 12px; }
+.intro h2, .section-title { font: 700 30px/1.15 var(--serif); margin: 0 0 12px; }
 .intro p { margin: 0 0 12px; color: var(--muted); }
 .section-title { margin-top: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 
@@ -116,19 +116,21 @@ h1 em { color: var(--gold); font-style: italic; }
 .tmeta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .ttitle { font: 700 21px/1.2 var(--serif); }
 .torig { font: 500 15px var(--sans); color: var(--muted); margin-left: 4px; }
-.ttag { font: 600 11px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--water); margin-left: 4px; }
 .tscene { font-size: 13px; color: var(--gold-soft); }
 .tchap { color: var(--muted); }
-.tnote { font-size: 14px; color: var(--muted); max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-.track.active .tnote, .track:hover .tnote { max-height: 14em; }
 .tdur { font-size: 13px; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
 
-/* Letras */
-.lyrics { margin: 0 0 48px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
-.lyrics-body p { margin: 0 0 16px; font: 500 20px/1.5 var(--serif); }
-.lyrics-body .chorus { padding-left: 14px; border-left: 2px solid var(--gold); }
-.lyrics-body .label { display: block; font: 600 11px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 4px; }
-.muted { color: var(--muted); font-style: italic; }
+/* Capítulo: resumen y frase */
+.chapter { grid-column: 1 / -1; margin: 6px 0 4px; padding: 20px 22px; border: 1px solid var(--line); border-radius: 12px; background: rgba(28, 11, 20, 0.55); cursor: auto; animation: unfold 0.35s ease; }
+@keyframes unfold { from { opacity: 0; transform: translateY(-6px); } }
+.chapter h2 { display: none; }
+.chapter h2 .torig { font-size: 16px; }
+.chapter-summary { margin: 0 0 22px; font-size: 16px; line-height: 1.7; color: var(--text); }
+.chapter-quote { margin: 0; padding: 4px 0 4px 18px; border-left: 2px solid var(--gold); }
+.chapter-quote[hidden] { display: none; }
+.chapter-quote blockquote { margin: 0; font: italic 500 23px/1.4 var(--serif); color: var(--gold-soft); }
+.chapter-quote figcaption { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.chapter-quote figcaption::before { content: "— "; }
 
 /* Galería */
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 40px; }
@@ -161,12 +163,12 @@ h1 em { color: var(--gold); font-style: italic; }
   .cover { max-width: 180px; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .track { grid-template-columns: 40px 1fr auto; gap: 10px; padding: 14px 6px; }
-  .tnote { max-height: none; }
-  .track:not(.active) .tnote { display: none; }
   .pbtn:not(.big) { width: 30px; }
+  .chapter { padding: 16px; }
+  .chapter-quote blockquote { font-size: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .chapter { animation: none; }
   .grapes, .acequia { animation: none; display: none; }
-  .tnote { transition: none; }
 }

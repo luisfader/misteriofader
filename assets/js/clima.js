@@ -81,21 +81,30 @@
   }
 
   // ---------- El Gacel de Sergio ----------
-  const GACEL = `<svg viewBox="0 0 220 84" aria-hidden="true">
-    <ellipse cx="112" cy="78" rx="96" ry="4" fill="#000" opacity=".35"/>
-    <path d="M10 56 L14 42 C16 38 20 37 26 37 L58 36 L80 16 C83 13 86 12 90 12 L150 12 C154 12 157 13 159 16 L176 36 L204 38 C209 39 212 42 212 47 L212 58 C212 62 209 64 205 64 L16 64 C12 64 10 61 10 56 Z" fill="#ddd2b8"/>
-    <path d="M10 52 H212" stroke="#b9ad92" stroke-width="2"/>
-    <path d="M66 36 L84 18 C86 16 88 15 91 15 L117 15 L117 36 Z" fill="#3b4a55"/>
-    <path d="M122 15 L148 15 C151 15 153 16 155 18 L170 36 L122 36 Z" fill="#3b4a55"/>
-    <rect x="118" y="15" width="4" height="22" fill="#ddd2b8"/>
-    <path d="M90 22 C93 21 97 22 99 25 L101 36 L92 36 Z" fill="#f2c9a0"/>
-    <path d="M88 20 C92 16 98 17 100 21 L99 24 C96 21 91 21 88 23 Z" fill="#6b6b6b"/>
-    <rect x="10" y="44" width="10" height="6" rx="2" fill="#fff6c9"/>
-    <rect x="204" y="44" width="8" height="6" rx="2" fill="#c0392b"/>
-    <path d="M100 40 V60 M140 40 V60" stroke="#b9ad92" stroke-width="1.5"/>
-    <rect x="104" y="43" width="8" height="2.5" rx="1.2" fill="#8a8170"/>
-    <g class="rueda r1"><circle cx="50" cy="64" r="15" fill="#1b1b1b"/><circle cx="50" cy="64" r="7" fill="#a9a9a9"/><path d="M50 57 V71 M43 64 H57" stroke="#6d6d6d" stroke-width="2"/></g>
-    <g class="rueda r2"><circle cx="172" cy="64" r="15" fill="#1b1b1b"/><circle cx="172" cy="64" r="7" fill="#a9a9a9"/><path d="M172 57 V71 M165 64 H179" stroke="#6d6d6d" stroke-width="2"/></g>
+  const GACEL = `<svg viewBox="0 0 240 92" aria-hidden="true">
+    <ellipse cx="120" cy="84" rx="104" ry="4" fill="#000" opacity=".35"/>
+    <path d="M14 47 L17 41 L80 37 L106 15 L164 14 L194 36 L227 38 L230 43 L230 63 L208 64 A20 20 0 0 0 168 64 L77 64 A20 20 0 0 0 37 64 L14 63 Z" fill="#9ea4aa"/>
+    <path d="M17 41 L80 37 L106 15 L164 14 L194 36 L227 38" fill="none" stroke="#c3c8cd" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M86 37 L107 18.5 L142 18 L142 37 Z" fill="#2b3640"/>
+    <path d="M148 18 L162 18 L187 36.5 L148 37 Z" fill="#2b3640"/>
+    <path d="M107 18.5 L142 18 M148 18 L162 18" stroke="#1d242a" stroke-width="1.2"/>
+    <path d="M106 37 C106 32 110 30 117 30 C124 30 128 32 128 37 Z" fill="#5a3d2b"/>
+    <circle cx="117" cy="25" r="6" fill="#e8c09a"/>
+    <path d="M111 24 C111 18 123 18 123 24 C121 21 113 21 111 24 Z" fill="#8d8d8d"/>
+    <path d="M111.5 24.5 C110 23 110.5 21 111.5 20.5 Z" fill="#8d8d8d"/>
+    <path d="M111.6 27.6 C112.6 26.8 114.6 26.8 115.4 27.6" stroke="#6b6b6b" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    <circle cx="113.2" cy="24" r=".8" fill="#2a1208"/>
+    <path d="M82 38 V62 M145 37 V62 M196 38 V62" stroke="#7d848b" stroke-width="1.3"/>
+    <rect x="132" y="42" width="9" height="2.6" rx="1.3" fill="#3c4247"/>
+    <path d="M86 33 L92 33 L91 37 L85 37 Z" fill="#1e1e1e"/>
+    <rect x="24" y="50" width="200" height="4" fill="#2a2a2a"/>
+    <path d="M10 49 H26 V58 H11 C10 56 10 51 10 49 Z" fill="#1e1e1e"/>
+    <path d="M220 48 H232 C233 51 233 56 232 58 H220 Z" fill="#1e1e1e"/>
+    <rect x="14" y="42" width="11" height="5" rx="1" fill="#f3efcf"/>
+    <rect x="223" y="40" width="7" height="7" rx="1" fill="#c0392b"/>
+    <rect x="223" y="40" width="7" height="2.5" fill="#e3a33b"/>
+    <g class="rueda r1"><circle cx="57" cy="66" r="15.5" fill="#161616"/><circle cx="57" cy="66" r="9" fill="#b7bcc1"/><circle cx="57" cy="66" r="3.2" fill="#6f767d"/><circle cx="57" cy="60.5" r="1.3" fill="#6f767d"/><circle cx="62.5" cy="66" r="1.3" fill="#6f767d"/><circle cx="57" cy="71.5" r="1.3" fill="#6f767d"/><circle cx="51.5" cy="66" r="1.3" fill="#6f767d"/></g>
+    <g class="rueda r2"><circle cx="188" cy="66" r="15.5" fill="#161616"/><circle cx="188" cy="66" r="9" fill="#b7bcc1"/><circle cx="188" cy="66" r="3.2" fill="#6f767d"/><circle cx="188" cy="60.5" r="1.3" fill="#6f767d"/><circle cx="193.5" cy="66" r="1.3" fill="#6f767d"/><circle cx="188" cy="71.5" r="1.3" fill="#6f767d"/><circle cx="182.5" cy="66" r="1.3" fill="#6f767d"/></g>
   </svg>`;
   function gacel() {
     const caja = el("div", "esc gacel");
@@ -107,7 +116,29 @@
       auto.appendChild(p);
     }
     caja.appendChild(auto);
+    vigilarZorro(auto, 9500);
     return { caja, dura: 9500, clase: "hay-gacel" };
+  }
+
+  // Cuando el Gacel se le viene encima, el zorro se asusta y pega un salto
+  function vigilarZorro(auto, dura) {
+    const zorro = document.getElementById("zorro");
+    if (!zorro) return;
+    const fin = performance.now() + dura;
+    requestAnimationFrame(function mirar(t) {
+      if (t > fin) return;
+      if (!auto.isConnected) return requestAnimationFrame(mirar);
+      const a = auto.getBoundingClientRect(), z = zorro.getBoundingClientRect();
+      const visible = z.right > 0 && z.left < innerWidth;
+      if (visible && a.left < z.right + 25 && a.right > z.left) {
+        zorro.classList.remove("susto");
+        void zorro.offsetWidth;
+        zorro.classList.add("susto");
+        setTimeout(() => zorro.classList.remove("susto"), 1700);
+        return;
+      }
+      requestAnimationFrame(mirar);
+    });
   }
 
   // ---------- Programación ----------

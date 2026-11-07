@@ -204,7 +204,8 @@ body.is-playing .zorro .pata, body.is-playing .zorro .sombra { transform-box: fi
 }
 
 /* ---------- Escenas de la portada: zonda, granizo, hidromiel y el Gacel ---------- */
-.clima { position: absolute; inset: 0; overflow: hidden; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, #000 70%, transparent 100%); }
+.clima { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.zonda-velo, .granizo-velo { -webkit-mask-image: linear-gradient(180deg, #000 65%, transparent 92%); mask-image: linear-gradient(180deg, #000 65%, transparent 92%); }
 .esc { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
 .esc.on { opacity: 1; }
 .hero-bg { transition: filter 1.5s ease, transform 1.5s ease; }
@@ -260,7 +261,7 @@ body.is-playing .zorro .pata, body.is-playing .zorro .sombra { transform-box: fi
 .hero.hay-hidromiel .hero-bg { filter: saturate(1.25) brightness(1.02); }
 
 /* El Gacel de Sergio cruza por el camino de tierra */
-.gacel .auto { position: absolute; right: -260px; bottom: 6px; width: 230px; animation: gacel 9.5s linear forwards; }
+.gacel .auto { position: absolute; right: -260px; bottom: 4px; width: 240px; animation: gacel 9.5s linear forwards; }
 .gacel .auto svg { width: 100%; display: block; animation: traqueteo 0.18s steps(2) infinite; }
 @keyframes gacel { to { transform: translateX(calc(-100vw - 300px)); } }
 @keyframes traqueteo { to { transform: translateY(-1px); } }
@@ -275,6 +276,27 @@ body.is-playing .zorro .pata, body.is-playing .zorro .sombra { transform-box: fi
 }
 @keyframes bocina { 0%, 30% { opacity: 0; } 34%, 48% { opacity: 1; } 52%, 100% { opacity: 0; } }
 
+/* El susto: el zorro salta cuando pasa el Gacel, y después sigue caminando */
+.zorro .sorpresa, .zorro .ojo-susto { opacity: 0; transition: opacity 0.15s ease; }
+.zorro.susto .sorpresa, .zorro.susto .ojo-susto { opacity: 1; }
+.zorro.susto .cuerpo { animation: salto 1.6s cubic-bezier(.3, 0, .4, 1) both; }
+@keyframes salto {
+  0% { transform: translateY(0); }
+  8% { transform: translateY(4px) scaleY(0.92); }
+  25% { transform: translateY(-96px) rotate(-10deg); }
+  55% { transform: translateY(-108px) rotate(2deg); }
+  85% { transform: translateY(-8px) rotate(6deg); }
+  92% { transform: translateY(3px) scaleY(0.94); }
+  100% { transform: translateY(0); }
+}
+.zorro.susto .sombra { animation: sombra-salto 1.6s ease both; }
+@keyframes sombra-salto { 25%, 70% { transform: scaleX(0.45); opacity: 0.15; } }
+.zorro.susto .pata { animation: none; transition: transform 0.15s ease; }
+.zorro.susto .p1, .zorro.susto .p2 { transform: rotate(38deg); }
+.zorro.susto .p3, .zorro.susto .p4 { transform: rotate(-38deg); }
+.zorro.susto .cola { animation: none; transform: rotate(-24deg); }
+.zorro.susto .cabeza { transform: rotate(-14deg); }
+
 @media (max-width: 640px) {
   .gacel .auto { width: 170px; }
   .hidromiel .frasco { width: 48px; bottom: 110px; }
@@ -285,5 +307,6 @@ body.is-playing .zorro .pata, body.is-playing .zorro .sombra { transform-box: fi
   .grapes { display: none; }
   .zorro, .zorro .pata, .zorro .cuerpo, .zorro .cola, .zorro .sombra { animation: none; }
   .zorro { transform: none; left: auto; right: 8%; }
+  .zorro.susto .cuerpo, .zorro.susto .sombra { animation: none; }
   .clima { display: none; }
 }
